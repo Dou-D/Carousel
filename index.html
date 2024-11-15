@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="imgs"></div>
+        <div class="points"></div>
+      </div>
+      <div class="btns">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+    <script>
+      const btns = document.querySelector(".btns");
+      const list = [
+        "./public/1.jpg",
+        "./public/2.jpg",
+        "./public/3.jpg",
+        "./public/4.jpg",
+      ];
+      init(list);
+      btns.addEventListener("click", (e) => {
+        if (e.target.id === "next") {
+          clickPlay(1);
+        } else if (e.target.id === "prev") {
+          clickPlay(-1);
+        }
+      });
+      points.addEventListener("click", (e) => {
+        goNext(e.target.getAttribute("index"));
+      });
+    </script>
+  </body>
+</html>

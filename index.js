@@ -49,6 +49,8 @@ function auto() {}
  */
 function transform(target, current) {
   SINGLEITEMWIDTH = items[0].offsetWidth;
+  //   重要的一行代码 在到达图片末尾后 4 % 4 = 0 回到开头
+  current = current % 4;
   target.style.transform = `translateX(-${current * SINGLEITEMWIDTH}px)`;
 }
 /**
@@ -56,7 +58,8 @@ function transform(target, current) {
  * @param {number} direction 1后一张 -1前一张
  */
 function clickPlay(direction) {
-  currentIndex += direction
+  currentIndex += direction;
+
   transform(imgs, currentIndex);
 }
 
@@ -70,7 +73,7 @@ function goNext(point) {
 }
 
 function computedCurrentIndex(point) {
-  return (currentIndex = point);
+  return Number(point);
 }
 
 function getCarouselItemWidth() {
